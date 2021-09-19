@@ -1,7 +1,7 @@
 # kubernetes-cluster-setup-using-kubeadm
 How to create kubernetes cluster using kubeadm
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/cAZ5nkLfL6M" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+Watch the video :https://youtu.be/cAZ5nkLfL6M
 
 Follow the below steps for creating Kubernetes Cluster on CentOs.
 
