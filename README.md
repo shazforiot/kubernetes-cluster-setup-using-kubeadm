@@ -59,14 +59,14 @@ UUID="Your respective network UUID"<br />
 DEVICE="ens33"<br />
 ONBOOT="yes"<br />
 
-Run the command  systemctl restart network to restart the network
+Run the command  systemctl restart network to restart the network<br />
 
 ------------------------------------------------------------
 
 **Edit /etc/hosts file**
 
-Run the below commands on the machines. Change the IP address and host name as per your machine settings.
-cat <<EOF>> /etc/hosts
+Run the below commands on the machines. Change the IP address and host name as per your machine settings.<br />
+cat <<EOF>> /etc/hosts<br />
 
 192.168.0.xxx k8smaster<br />
 192.168.0.xxx k8sworker1<br />
