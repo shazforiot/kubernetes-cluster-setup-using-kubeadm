@@ -31,11 +31,11 @@ hostnamectl set-hostname k8sworker2 (On Node2)<br />
 
 **Assign Static IP**
 
-Run nmcli con to indentify the network details.
+Run nmcli con to indentify the network details.<br />
 
-Go to vi /etc/sysconfig/network-scripts/ and change the settings in ifcfg-ens33 (the name will change based on your network device name) as below. 
+Go to vi /etc/sysconfig/network-scripts/ and change the settings in ifcfg-ens33 (the name will change based on your network device name) as below. <br />
 
-Below is a sample format 
+Below is a sample format <br />
 
 TYPE="Ethernet"<br />
 PROXY_METHOD="none"<br />
@@ -78,73 +78,73 @@ EOF
   
 **Disable SELinux**
   
-setenforce 0
-sed -i --follow-symlinks 's/SELINUX=enforcing/SELINUX=disabled/g' /etc/sysconfig/selinux
+setenforce 0<br />
+sed -i --follow-symlinks 's/SELINUX=enforcing/SELINUX=disabled/g' /etc/sysconfig/selinux<br />
 
 -----------------------------------------------------------
   
 **Disable firewall and edit Iptables settings**
   
-systemctl disable firewalld
-modprobe br_netfilter
-echo '1' > /proc/sys/net/bridge/bridge-nf-call-iptables
+systemctl disable firewalld<br />
+modprobe br_netfilter<br />
+echo '1' > /proc/sys/net/bridge/bridge-nf-call-iptables<br />
   
 ----------------------------------------------------------
   
 **Setup Kubernetes Repo**
 
-cat <<EOF > /etc/yum.repos.d/kubernetes.repo
-[kubernetes]
-name=Kubernetes
-baseurl=https://packages.cloud.google.com/yum/repos/kubernetes-el7-x86_64
-enabled=1
-gpgcheck=1
-repo_gpgcheck=1
-gpgkey=https://packages.cloud.google.com/yum/doc/yum-key.gpg https://packages.cloud.google.com/yum/doc/rpm-package-key.gpg
-EOF
+cat <<EOF > /etc/yum.repos.d/kubernetes.repo<br />
+[kubernetes]<br />
+name=Kubernetes<br />
+baseurl=https://packages.cloud.google.com/yum/repos/kubernetes-el7-x86_64<br />
+enabled=1<br />
+gpgcheck=1<br />
+repo_gpgcheck=1<br />
+gpgkey=https://packages.cloud.google.com/yum/doc/yum-key.gpg https://packages.cloud.google.com/yum/doc/rpm-package-key.gpg<br />
+EOF<br />
 
 ---------------------------------------------------------
   
 **Installing Kubeadm and Docker, Enable and start the services**
   
-yum install kubeadm docker -y
-systemctl enable kubelet
-systemctl start kubelet
-systemctl enable docker
-systemctl start docker
+yum install kubeadm docker -y<br />
+systemctl enable kubelet<br />
+systemctl start kubelet<br />
+systemctl enable docker<br />
+systemctl start docker<br />
   
 --------------------------------------------------------
   
 **Disable Swap**
   
-swapoff -a
-vi /etc/fstab and Comment the line with Swap Keyword
+swapoff -a<br />
+vi /etc/fstab and Comment the line with Swap Keyword<br />
   
 -----------------------------------------------------
   
 **Initialize Kubernetes Cluster**
 
-kubeadm init
-mkdir -p $HOME/.kube
-cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
-chown $(id -u):$(id -g) $HOME/.kube/config
+kubeadm init<br />
+mkdir -p $HOME/.kube<br />
+cp -i /etc/kubernetes/admin.conf $HOME/.kube/config<br />
+chown $(id -u):$(id -g) $HOME/.kube/config<br />
   
 ------------------------------------------------------
   
 **Installing Pod Network using Calico network**
 
 
-curl https://docs.projectcalico.org/manifests/calico.yaml -O
-kubectl apply -f calico.yaml
-kubectl get pods -n kube-system
+curl https://docs.projectcalico.org/manifests/calico.yaml -O<br />
+kubectl apply -f calico.yaml<br />
+kubectl get pods -n kube-system<br />
 
 ----------------------------------------------------
 
   **Join Worker Nodes **
   
-  Use the token from Kubeadmin init screen. Below is a sample how it looks like.
+  Use the token from Kubeadmin init screen. Below is a sample how it looks like.<br />
   
-  kubeadm join 192.168.0.xxx:6443 --token XXX\
-        --discovery-token-ca-cert-hash sha256:XX
+  kubeadm join 192.168.0.xxx:6443 --token XXX\<br />
+        --discovery-token-ca-cert-hash sha256:XX<br />
 
   ---------------------------------------------------
