@@ -37,7 +37,7 @@ Go to vi /etc/sysconfig/network-scripts/ and change the settings in ifcfg-ens33 
 
 Below is a sample format 
 
-TYPE="Ethernet"
+TYPE="Ethernet"<br />
 PROXY_METHOD="none"
 BROWSER_ONLY="no"
 BOOTPROTO="none"
