@@ -23,9 +23,9 @@ Steps 1 tp 8 is done on Both Master and worker nodes, Steps 9 & 10 is to be done
 
 **Set Hostnames**
 
-hostnamectl set-hostname k8smaster (On Master)
-hostnamectl set-hostname k8sworker1(On Node1)
-hostnamectl set-hostname k8sworker2 (On Node2)
+hostnamectl set-hostname k8smaster (On Master)<br />
+hostnamectl set-hostname k8sworker1(On Node1)<br />
+hostnamectl set-hostname k8sworker2 (On Node2)<br />
 
 ------------------------------------------------------
 
@@ -68,9 +68,9 @@ Run the command  systemctl restart network to restart the network
 Run the below commands on the machines. Change the IP address and host name as per your machine settings.
 cat <<EOF>> /etc/hosts
 
-192.168.0.xxx k8smaster
-192.168.0.xxx k8sworker1
-192.168.0.xxx k8sworker2
+192.168.0.xxx k8smaster<br />
+192.168.0.xxx k8sworker1<br />
+192.168.0.xxx k8sworker2<br />
 
 EOF
   
