@@ -93,7 +93,7 @@ echo '1' > /proc/sys/net/bridge/bridge-nf-call-iptables<br />
   
 **Setup Kubernetes Repo**
 
-"cat <<EOF > /etc/yum.repos.d/kubernetes.repo<br />
+"cat << EOF > /etc/yum.repos.d/kubernetes.repo<br />
 [kubernetes]<br />
 name=Kubernetes<br />
 baseurl=https://packages.cloud.google.com/yum/repos/kubernetes-el7-x86_64<br />
