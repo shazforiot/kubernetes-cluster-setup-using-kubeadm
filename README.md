@@ -66,13 +66,13 @@ Run the command  systemctl restart network to restart the network<br />
 **Edit /etc/hosts file**
 
 Run the below commands on the machines. Change the IP address and host name as per your machine settings.<br />
-"cat <<EOF>> /etc/hosts<br />
+cat << EOF >> /etc/hosts<br />
 
 192.168.0.xxx k8smaster<br />
 192.168.0.xxx k8sworker1<br />
 192.168.0.xxx k8sworker2<br />
 
-EOF"
+EOF
   
 -----------------------------------------------------------
   
