@@ -38,26 +38,26 @@ Go to vi /etc/sysconfig/network-scripts/ and change the settings in ifcfg-ens33 
 Below is a sample format 
 
 TYPE="Ethernet"<br />
-PROXY_METHOD="none"
-BROWSER_ONLY="no"
-BOOTPROTO="none"
-IPADDR=XXX.XXX.XXX.XXX
-PREFIX=24
-GATEWAY=XXX.XXX.XXX.XXX
-DNS1=192.168.2.254
-DNS2=8.8.8.8
-DNS3=8.8.4.4
-DEFROUTE="yes"
-IPV4_FAILURE_FATAL="no"
-IPV6INIT="no"
-IPV6_AUTOCONF="no"
-IPV6_DEFROUTE="no"
-IPV6_FAILURE_FATAL="no"
-IPV6_ADDR_GEN_MODE="stable-privacy"
-NAME="ens33"
-UUID="Your respective network UUID"
-DEVICE="ens33"
-ONBOOT="yes"
+PROXY_METHOD="none"<br />
+BROWSER_ONLY="no"<br />
+BOOTPROTO="none"<br />
+IPADDR=XXX.XXX.XXX.XXX<br />
+PREFIX=24<br />
+GATEWAY=XXX.XXX.XXX.XXX<br />
+DNS1=192.168.2.254<br />
+DNS2=8.8.8.8<br />
+DNS3=8.8.4.4<br />
+DEFROUTE="yes"<br />
+IPV4_FAILURE_FATAL="no"<br />
+IPV6INIT="no"<br />
+IPV6_AUTOCONF="no"<br />
+IPV6_DEFROUTE="no"<br />
+IPV6_FAILURE_FATAL="no"<br />
+IPV6_ADDR_GEN_MODE="stable-privacy"<br />
+NAME="ens33"<br />
+UUID="Your respective network UUID"<br />
+DEVICE="ens33"<br />
+ONBOOT="yes"<br />
 
 Run the command  systemctl restart network to restart the network
 
