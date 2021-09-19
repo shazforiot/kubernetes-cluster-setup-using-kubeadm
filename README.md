@@ -66,13 +66,13 @@ Run the command  systemctl restart network to restart the network<br />
 **Edit /etc/hosts file**
 
 Run the below commands on the machines. Change the IP address and host name as per your machine settings.<br />
-cat <<EOF>> /etc/hosts<br />
+"cat <<EOF>> /etc/hosts<br />
 
 192.168.0.xxx k8smaster<br />
 192.168.0.xxx k8sworker1<br />
 192.168.0.xxx k8sworker2<br />
 
-EOF
+EOF"
   
 -----------------------------------------------------------
   
@@ -93,7 +93,7 @@ echo '1' > /proc/sys/net/bridge/bridge-nf-call-iptables<br />
   
 **Setup Kubernetes Repo**
 
-cat <<EOF > /etc/yum.repos.d/kubernetes.repo<br />
+"cat <<EOF > /etc/yum.repos.d/kubernetes.repo<br />
 [kubernetes]<br />
 name=Kubernetes<br />
 baseurl=https://packages.cloud.google.com/yum/repos/kubernetes-el7-x86_64<br />
@@ -101,7 +101,7 @@ enabled=1<br />
 gpgcheck=1<br />
 repo_gpgcheck=1<br />
 gpgkey=https://packages.cloud.google.com/yum/doc/yum-key.gpg https://packages.cloud.google.com/yum/doc/rpm-package-key.gpg<br />
-EOF<br />
+EOF<br />"
 
 ---------------------------------------------------------
   
@@ -144,7 +144,7 @@ kubectl get pods -n kube-system<br />
   
   Use the token from Kubeadmin init screen. Below is a sample how it looks like.<br />
   
-  kubeadm join 192.168.0.xxx:6443 --token XXX\<br />
+  kubeadm join 192.168.0.xxx:6443 --token XXX\
         --discovery-token-ca-cert-hash sha256:XX<br />
 
   ---------------------------------------------------
